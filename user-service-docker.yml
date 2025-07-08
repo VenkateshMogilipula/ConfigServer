@@ -4,9 +4,9 @@ spring:
   application:
     name: user-service
   datasource:
-    url: jdbc:mysql://mysql:3306/users?createDatabaseIfNotExist=true
-    username: root
-    password: Venky@123
+    url: jdbc:mysql://mysql-user:3306/${MYSQL-DATABASE}?createDatabaseIfNotExist=true
+    username: ${MYSQL_USER}
+    password: ${MYSQL_ROOT_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
