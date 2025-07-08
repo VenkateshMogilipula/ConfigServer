@@ -1,0 +1,23 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      routes:
+        - id: USER-SERVICE
+          uri: lb://user-service
+          predicates:
+            - Path=/user/**
+        - id: COURSE-SERVICE
+          uri: lb://course-service
+          predicates:
+            - Path=/courses/**
+        - id: ENROLLMENT-SERVICE
+          uri: lb://enrollment-service
+          predicates:
+            - Path=/enrollments/**
+logging:
+  level:
+    org.springframework.web.reactive.function.client: DEBUG
